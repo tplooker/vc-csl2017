@@ -1,194 +1,975 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Credential Status List 2017</title>
-    <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
-    <!--
+
+<head>
+  <title>Credential Status List 2017</title>
+  <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
+  <!--
       === NOTA BENE ===
       For the three scripts below, if your spec resides on dev.w3 you can check them
       out in the same tree and use relative links so that they'll work offline,
      -->
-    <script src='https://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
-    <script src="./common.js"></script>
-    <script type="text/javascript" class="remove">
-      var respecConfig = {
-        // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
-        specStatus: "CG-DRAFT",
+  <script src='https://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
+  <script src="./common.js"></script>
+  <script type="text/javascript" class="remove">
+    var respecConfig = {
+      // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+      specStatus: "CG-DRAFT",
 
-        // the specification's short name, as in http://www.w3.org/TR/short-name/
-        shortName: "vc-csl2017",
+      // the specification's short name, as in http://www.w3.org/TR/short-name/
+      shortName: "vc-csl2017",
 
-        // subtitle
-        subtitle: "A simple list-based method for checking the current status of a credential",
+      // subtitle
+      subtitle: "A simple list-based method for checking the current status of a credential",
 
-        // if you wish the publication date to be other than today, set this
-        // publishDate:  "2009-08-06",
+      // if you wish the publication date to be other than today, set this
+      // publishDate:  "2009-08-06",
 
-        // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
-        // and its maturity status
-        // previousPublishDate:  "1977-03-15",
-        // previousMaturity:  "WD",
+      // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+      // and its maturity status
+      // previousPublishDate:  "1977-03-15",
+      // previousMaturity:  "WD",
 
-        // extend the bibliography entries
-        //localBiblio: ccg.localBiblio,
+      // extend the bibliography entries
+      //localBiblio: ccg.localBiblio,
 
-        github: "https://github.com/w3c-ccg/vc-csl2017",
-        includePermalinks: false,
+      github: "https://github.com/w3c-ccg/vc-csl2017",
+      includePermalinks: false,
 
-        // if there a publicly available Editor's Draft, this is the link
-        edDraftURI: "https://w3c-ccg.github.io/vc-csl2017/",
+      // if there a publicly available Editor's Draft, this is the link
+      edDraftURI: "https://w3c-ccg.github.io/vc-csl2017/",
 
-        // if this is a LCWD, uncomment and set the end of its review period
-        // lcEnd: "2009-08-05",
+      // if this is a LCWD, uncomment and set the end of its review period
+      // lcEnd: "2009-08-05",
 
-        // editors, add as many as you like
-        // only "name" is required
-        editors: [
-          { name: "Manu Sporny", url: "http://manu.sporny.org/",
-            company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/" }
-        ],
+      // editors, add as many as you like
+      // only "name" is required
+      editors: [
+        {
+          name: "Manu Sporny", url: "http://manu.sporny.org/",
+          company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/"
+        }
+      ],
 
-        // authors, add as many as you like.
-        // This is optional, uncomment if you have authors as well as editors.
-        // only "name" is required. Same format as editors.
-        authors: [
-          { name: "Manu Sporny", url: "http://manu.sporny.org/",
-            company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/" }
-        ],
+      // authors, add as many as you like.
+      // This is optional, uncomment if you have authors as well as editors.
+      // only "name" is required. Same format as editors.
+      authors: [
+        {
+          name: "Manu Sporny", url: "http://manu.sporny.org/",
+          company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/"
+        }
+      ],
 
-        // name of the WG
-        wg:           "Credentials Community Group",
+      // name of the WG
+      wg: "Credentials Community Group",
 
-        // URI of the public WG page
-        wgURI:        "https://www.w3.org/community/credentials/",
+      // URI of the public WG page
+      wgURI: "https://www.w3.org/community/credentials/",
 
-        // name (with the @w3c.org) of the public mailing to which comments are due
-        wgPublicList: "public-credentials",
+      // name (with the @w3c.org) of the public mailing to which comments are due
+      wgPublicList: "public-credentials",
 
-        // URI of the patent status for this WG, for Rec-track documents
-        // !!!! IMPORTANT !!!!
-        // This is important for Rec-track documents, do not copy a patent URI from a random
-        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-        // Team Contact.
-        wgPatentURI:  "https://www.w3.org/community/about/agreements/cla/",
-        maxTocLevel: 4,
-        inlineCSS: true
-      };
-    </script>
+      // URI of the patent status for this WG, for Rec-track documents
+      // !!!! IMPORTANT !!!!
+      // This is important for Rec-track documents, do not copy a patent URI from a random
+      // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+      // Team Contact.
+      wgPatentURI: "https://www.w3.org/community/about/agreements/cla/",
+      maxTocLevel: 4,
+      inlineCSS: true
+    };
+  </script>
 
-    <style>
-pre .highlight {
-  font-weight: bold;
-  color: green;
-}
-pre .subject {
-  font-weight: bold;
-  color: RoyalBlue;
-}
-pre .property {
-  font-weight: bold;
-  color: DarkGoldenrod;
-}
-pre .comment {
-  font-weight: bold;
-  color: Gray;
-}
-    </style>
+  <style>
+    pre .highlight {
+      font-weight: bold;
+      color: green;
+    }
 
-  </head>
-  <body>
-    <section id='abstract'>
+    pre .subject {
+      font-weight: bold;
+      color: RoyalBlue;
+    }
+
+    pre .property {
+      font-weight: bold;
+      color: DarkGoldenrod;
+    }
+
+    pre .comment {
+      font-weight: bold;
+      color: Gray;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <section id='abstract'>
+    <p>
+      <a>Verifiable credentials</a> enable a way for <a>issuers</a> to express <a>credentials</a>
+      on the Web in a way that is cryptographically secure and verifiable. However, once a
+      <a>verifiable credential</a> has been issued, it is often important for an issuer
+      to be able to update information associated to the <a>verifiable credential</a>.
+      The verifiable credential specification [[VC-SPEC]] defines a <a>credential status</a> property
+      that enables such functionality. The purpose of this specification is to define one method
+      for expressing credential status information about a <a>verifiable credential</a> in a way
+      that is verifiable and privacy preserving.
+    </p>
+  </section>
+
+  <section id='sotd'>
+    <p>
+      Comments regarding this document are welcome. Please file issues
+      directly on <a href="https://github.com/w3c-ccg/vs-csl2017/issues/">GitHub</a>,
+      or send them to
+      <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
+      (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
+      <a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>).
+    </p>
+  </section>
+
+
+  <section>
+    <h1>Introduction</h1>
+    <p>
+      <a>Verifiable credentials</a> enable a way for <a>issuers</a> to express <a>credentials</a>
+      on the Web in a way that is cryptographically secure and verifiable. However, once a
+      <a>verifiable credential</a> has been issued, it is often important for an issuer
+      to be able to update information associated to the <a>verifiable credential</a>.
+      The verifiable credential specification [[VC-SPEC]] defines a <a>credential status</a> property
+      that enables such functionality. The purpose of this specification is to define one method
+      for expressing credential status information about a <a>verifiable credential</a> in a way
+      that is verifiable and privacy preserving.
+    </p>
+  </section>
+
+  <section class="informative">
+    <h1>Terminology</h1>
+    </dd>
+    <dt><dfn data-lt="credential|credentials">credential</dfn></dt>
+    <dd>
+      A set of one or more <a>claims</a> made by an <a>issuer</a>. A
+      <dfn data-lt="verifiable credentials">verifiable credential</dfn> is a
+      tamper-evident credential that has authorship that can be cryptographically
+      verified. Verifiable credentials can be used to build
+      <a>verifiable presentations</a>, which can also be cryptographically verified.
+      The <a>claims</a> in a credential can be about different <a>subjects</a>.
+    </dd>
+    </dd>
+    <dt><dfn data-lt="decentralized identifiers|DID|DIDs">decentralized identifier</dfn></dt>
+    <dd>
+      A portable URL-based identifier, also known as a <strong><em>DID</em></strong>,
+      associated with an <a>entity</a>. These identifiers are most often used in a
+      <a>verifiable credential</a> and are associated with <a>subjects</a> such that a
+      <a>verifiable credential</a> itself can be easily ported from one
+      <a>repository</a> to another without the need to reissue the <a>credential</a>.
+      An example of a DID is <code>did:example:123456abcdef</code>.
+    <dt><dfn data-lt="issuers|issuer's">issuer</dfn></dt>
+    <dd>
+      A role an <a>entity</a> can perform by asserting <a>claims</a> about one or
+      more <a>subjects</a>, creating a <a>verifiable credential</a> from these
+      <a>claims</a>, and transmitting the <a>verifiable credential</a> to a
+      <a>holder</a>.
+    </dd>
+    <dt><dfn data-lt="presentations">presentation</dfn></dt>
+    <dd>
+      Data derived from one or more <a>verifiable credentials</a>, issued by one or
+      more <a>issuers</a>, that is shared with a specific <a>verifier</a>. A
+      <dfn data-lt="verifiable presentations">verifiable presentation</dfn>
+      is a tamper-evident presentation encoded in such a way that authorship of the
+      data can be trusted after a process of cryptographic verification. Certain
+      types of verifiable presentations might contain data that is synthesized from,
+      but do not contain, the original <a>verifiable credentials</a> (for example,
+      zero-knowledge proofs).
+
+    <dt><dfn data-lt="entities|entity's">entity</dfn></dt>
+    <dd>
+      A thing with distinct and independent existence, such as a person,
+      organization, or device that performs one or more roles in the ecosystem.
+    </dd>
+    <dt><dfn data-lt="credential status list">credential status list</dfn></dt>
+    <dd>
+      A list expressing the current status of a collection of <a>verifiable credentials</a>.
+    </dd>
+    <dt><dfn data-lt="credential status">credential status</dfn></dt>
+    <dd>
+      The current status of a <a>verifiable credential</a> as defined by the [[VC-SPEC]].
+    </dd>
+    </dd>
+    <dt><dfn data-lt="verify|verified|verifying|verifiable|verifiability">verification</dfn></dt>
+    <dd>
+      The evaluation of whether a <a>verifiable credential</a> or <a>verifiable presentation</a>
+      is an authentic and timely statement of the issuer or presenter, respectively.
+      This includes checking that: the credential (or presentation) conforms to the specification; the proof method is
+      satisfied; and, if present, the status check succeeds.
+
+    </dd>
+    <dt><dfn data-lt="verifier|verifiers|verifier's|credential verifiers|credential verifier's">verifier</dfn></dt>
+    <dd>
+      A role an <a>entity</a> performs by receiving one or more
+      <a>verifiable credentials</a>, optionally inside a
+      <a>verifiable presentation</a> for processing. Other specifications might refer
+      to this concept as a <dfn data-lt="relying parties">relying party</dfn>.
+    </dd>
+    <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
+    <dd>
+      A Uniform Resource Identifier, as defined by [[RFC3986]].
+    </dd>
+  </section>
+  <section class="informative">
+    <h2>Data Model</h2>
+
+    <p class="issue">
+      Add commentary about the status field and approaches to different enumerations
+    </p>
+
+    <p>
+      The following section outlines the data model for the credential status list.
+    </p>
+
+    <section>
+      <h3>Identifier</h3>
+
       <p>
-A simple list-based mechanism for publishing and checking the status of a
-credential.
+        A credential status list contains an identifier which identifies the status list.
       </p>
+
+      <p>
+        A <a>credential status list</a> MUST define an <code>id</code>.
+      </p>
+
+      <pre class="example nohighlight" title="Usage of the id property">
+{
+  <span class="highlight">"id": "https://dmv.example.gov/status/24",</span>
+  "issuer": "http://dmv.example.gov/",
+  "issued" : "2017-12-05T14:27:42Z",
+  "credentialStatuses": [{
+    "id": "https://dmv.example.gov/status/24/credentials/3732",
+    "credentialId": "https://dmv.example.gov/credentials/3732"
+    "status": "Revoked",
+    "statusReason": "Disciplinary action"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-05T14:27:42Z",
+    "proof": { ... }
+  }, {
+    "id": "http://dmv.example.gov/status/24/credentials/2363",
+    "credentialId": "http://dmv.example.gov/credentials/2363",
+    "currentStatus": "Suspended",
+    "statusReason": "Investigation"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-04T14:27:42Z",
+    "proof": { ... }
+  }
+  }],
+  "proof": { ... }
+}
+          </pre>
     </section>
 
-<section id='sotd'>
-<p>
-Comments regarding this document are welcome. Please file issues
-directly on <a href="https://github.com/w3c-ccg/vs-csl2017/issues/">GitHub</a>,
-or send them to
-<a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
-(<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
-<a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>).
-</p>
+    <section>
+      <h3>Issuer</h3>
 
-</section>
+      <p>
+        This specification defines a property for expressing the <a>issuer</a> of a credential status list.
+      </p>
 
+      <p>
+        A <a>credential status list</a> MAY define an <code>issuer</code>.
+      </p>
 
-<section>
-<h1>Introduction</h1>
-<p>
-A simple list-based mechanism for publishing and checking the status of a
-credential.
-</p>
+      <dl>
+        <dt><var>issuer</var></dt>
+        <dd>
+          The value of the <code>issuer</code> property MUST be either a
+          <a>URI</a> or an object containing an <code>id</code>. It is
+          RECOMMENDED that the <a>URI</a> in the <code>issuer</code> or its
+          <code>id</code> be one which, if dereferenced, results in a document containing
+          machine-readable information about the <a>issuer</a> that can be used to
+          <a>verify</a> the information expressed in the <a>credential status list</a>.
+        </dd>
+      </dl>
 
-
-<pre class="example nohighlight" title="Usage of status property">
+      <pre class="example nohighlight" title="Usage of the issuer property">
 {
-  "id": "http://dmv.example.gov/credentials/3732",
-  "type": ["Credential", "ProofOfAgeCredential"],
-  "issuer": "https://dmv.example.gov/issuers/14",
-  "issued": "2010-01-01T19:73:24Z",
-  "claim": {
+  "id": "https://dmv.example.gov/status/24",
+  <span class="highlight">"issuer": "http://dmv.example.gov/",</span>
+  "issued" : "2017-12-05T14:27:42Z",
+  "credentialStatuses": [{
+    "id": "https://dmv.example.gov/status/24/credentials/3732",
+    "credentialId": "https://dmv.example.gov/credentials/3732"
+    "status": "Revoked",
+    "statusReason": "Disciplinary action"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-05T14:27:42Z",
+    "proof": { ... }
+  }, {
+    "id": "http://dmv.example.gov/status/24/credentials/2363",
+    "credentialId": "http://dmv.example.gov/credentials/2363",
+    "currentStatus": "Suspended",
+    "statusReason": "Investigation"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-04T14:27:42Z",
+    "proof": { ... }
+  }
+  }],
+  "proof": { ... }
+}
+          </pre>
+
+      <p>
+        It is also possible to express additional information about the issuer by
+        associating an object with the issuer property:
+      </p>
+
+      <pre class="example nohighlight" title="Usage of the issuer property">
+{
+  "id": "https://dmv.example.gov/status/24",
+  <span class="highlight">"issuer": {
+      "id": "did:example:76e12ec712ebc6f1c221ebfeb1f",
+      "name": "Example Academic Institute"
+    }</span>,
+  "issued" : "2017-12-05T14:27:42Z",
+  "credentialStatuses": [{
+    "id": "https://dmv.example.gov/status/24/credentials/3732",
+    "credentialId": "https://dmv.example.gov/credentials/3732"
+    "status": "Revoked",
+    "statusReason": "Disciplinary action"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-05T14:27:42Z",
+    "proof": { ... }
+  }, {
+    "id": "http://dmv.example.gov/status/24/credentials/2363",
+    "credentialId": "http://dmv.example.gov/credentials/2363",
+    "currentStatus": "Suspended",
+    "statusReason": "Investigation"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-04T14:27:42Z",
+    "proof": { ... }
+  }
+  }],
+  "proof": { ... }
+}
+          </pre>
+
+      <p class="note">
+        The value of the <code>issuer</code> property can also be a JWK (for
+        example, <code>"https://example.com/keys/foo.jwk"</code>) or a <a>DID</a> (for
+        example, <code>"did:example:abfe13f712120431c276e12ecab"</code>).
+      </p>
+
+    </section>
+
+    <section>
+      <h3>Issued</h3>
+
+      <p>
+        This specification defines the <code>issued</code> property for expressing the date and time when a
+        credential
+        status list becomes valid.
+      </p>
+
+      <p>
+        A <a>credential status list</a> MAY define an <code>issued</code> property.
+      </p>
+
+      <dl>
+        <dt><var>issued</var></dt>
+        <dd>
+          The value of the <code>issued</code> property MUST be a string value of
+          an [[!RFC3339]] combined date and time string representing the date and time the
+          <a>credential status list</a> becomes valid, which could be a date and time in the future.
+        </dd>
+      </dl>
+
+      <pre class="example nohighlight" title="Usage of the issued property">
+{
+  "id": "https://dmv.example.gov/status/24",
+  "issuer": "http://dmv.example.gov/",
+  <span class="highlight">"issued" : "2017-12-05T14:27:42Z",</span>
+  "credentialStatuses": [{
+    "id": "https://dmv.example.gov/status/24/credentials/3732",
+    "credentialId": "https://dmv.example.gov/credentials/3732"
+    "status": "Revoked",
+    "statusReason": "Disciplinary action"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-05T14:27:42Z",
+    "proof": { ... }
+  }, {
+    "id": "http://dmv.example.gov/status/24/credentials/2363",
+    "credentialId": "http://dmv.example.gov/credentials/2363",
+    "currentStatus": "Suspended",
+    "statusReason": "Investigation"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-04T14:27:42Z",
+    "proof": { ... }
+  }
+  }],
+  "proof": { ... }
+}
+          </pre>
+
+    </section>
+
+    <section>
+      <h3>Credential Status</h3>
+
+      <p>
+        This specification defines the <code>credentialStatuses</code> property for expressing verifiable
+        credentials and their
+        current credential status.
+      </p>
+
+      <p>
+        A <a>credential status list</a> MUST define a <code>credentialStatuses</code> property.
+      </p>
+
+      <dl>
+        <dt><var>credentialStatuses</var></dt>
+        <dd>
+          The value of the <code>credentialStatuses</code> property MUST be an array of
+          objects conforming to the <code>credentialStatus</code> data model.
+        </dd>
+      </dl>
+
+      <pre class="example nohighlight" title="Usage of the issued property">
+{
+  "id": "https://dmv.example.gov/status/24",
+  "issuer": "http://dmv.example.gov/",
+  "issued" : "2017-12-05T14:27:42Z",  
+  <span class="highlight">"credentialStatuses": [{  
+    "id": "https://dmv.example.gov/status/24/credentials/3732",
+    "credentialId": "https://dmv.example.gov/credentials/3732"
+    "status": "Revoked",
+    "statusReason": "Disciplinary action"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-05T14:27:42Z",
+    "proof": { ... }
+  }, {
+    "id": "http://dmv.example.gov/status/24/credentials/2363",
+    "credentialId": "http://dmv.example.gov/credentials/2363",
+    "currentStatus": "Suspended",
+    "statusReason": "Investigation"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-04T14:27:42Z",
+    "proof": { ... }
+  }</span>
+  }],
+  "proof": { ... }
+}
+          </pre>
+
+      <section>
+        <h4>Identifier</h4>
+
+        <p>
+          This specification defines the <code>identifier</code> property for uniquely identifying a credential
+          status.
+        </p>
+
+        <p>
+          A <a>credential status</a> object MUST define an <code>id</code> property.
+        </p>
+
+        <pre class="example nohighlight" title="Usage of the credential status id property">
+      {
+        "id": "https://dmv.example.gov/status/24",
+        "issuer": "http://dmv.example.gov/",
+        "issued" : "2017-12-05T14:27:42Z",  
+        "credentialStatuses": [{  
+          <span class="highlight">"id": "https://dmv.example.gov/status/24/credentials/3732",</span>
+          "credentialId": "https://dmv.example.gov/credentials/3732"
+          "status": "Revoked",
+          "statusReason": "Disciplinary action"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-05T14:27:42Z",
+          "proof": { ... }
+        }, {
+          "id": "http://dmv.example.gov/status/24/credentials/2363",
+          "credentialId": "http://dmv.example.gov/credentials/2363",
+          "currentStatus": "Suspended",
+          "statusReason": "Investigation"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-04T14:27:42Z",
+          "proof": { ... }
+        }
+        }],
+        "proof": { ... }
+      }
+                </pre>
+
+      </section>
+
+      <section>
+        <h4>Credential Identifier</h4>
+
+        <p>
+          This specification defines the <code>credentialId</code> property for uniquely identifying the
+          credential that is
+          the subject of the credential status.
+        </p>
+
+        <p>
+          A <a>credential status</a> object MUST define a <code>credentialId</code> property. The
+          <code>credentialId</code>
+          MUST uniquely identify the verifiable credential that is the subject of the credential status.
+        </p>
+
+        <pre class="example nohighlight" title="Usage of the credential status id property">
+      {
+        "id": "https://dmv.example.gov/status/24",
+        "issuer": "http://dmv.example.gov/",
+        "issued" : "2017-12-05T14:27:42Z",  
+        "credentialStatuses": [{  
+          "id": "https://dmv.example.gov/status/24/credentials/3732",
+          <span class="highlight">"credentialId": "https://dmv.example.gov/credentials/3732",</span>
+          "status": "Revoked",
+          "statusReason": "Disciplinary action"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-05T14:27:42Z",
+          "proof": { ... }
+        }, {
+          "id": "http://dmv.example.gov/status/24/credentials/2363",
+          "credentialId": "http://dmv.example.gov/credentials/2363",
+          "currentStatus": "Suspended",
+          "statusReason": "Investigation"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-04T14:27:42Z",
+          "proof": { ... }
+        }
+        }],
+        "proof": { ... }
+      }
+                </pre>
+
+      </section>
+
+      <section>
+        <h4>Status</h4>
+
+        <p class="issue">
+          Further define the possible enumerations of this field.
+        </p>
+
+        <p>
+          This specification defines the <code>status</code> property for indicating the verifiable credentials
+          current status.
+        </p>
+
+        <p>
+          A <a>credential status</a> object MUST define a <code>status</code> property.
+        </p>
+
+        <pre class="example nohighlight" title="Usage of the credential status id property">
+      {
+        "id": "https://dmv.example.gov/status/24",
+        "issuer": "http://dmv.example.gov/",
+        "issued" : "2017-12-05T14:27:42Z",  
+        "credentialStatuses": [{  
+          "id": "https://dmv.example.gov/status/24/credentials/3732",
+          "credentialId": "https://dmv.example.gov/credentials/3732",
+          <span class="highlight">"status": "Revoked",</span>
+          "statusReason": "Disciplinary action"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-05T14:27:42Z",
+          "proof": { ... }
+        }, {
+          "id": "http://dmv.example.gov/status/24/credentials/2363",
+          "credentialId": "http://dmv.example.gov/credentials/2363",
+          "currentStatus": "Suspended",
+          "statusReason": "Investigation"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-04T14:27:42Z",
+          "proof": { ... }
+        }
+        }],
+        "proof": { ... }
+      }
+                </pre>
+
+      </section>
+
+      <section>
+        <h4>Status Reason</h4>
+
+        <p>
+          This specification defines the <code>statusReason</code> property for adding a textual reason to the
+          current status of a verifiable credential.
+        </p>
+
+        <p>
+          A <a>credential status</a> object MAY define a <code>statusReason</code> property.
+        </p>
+
+        <pre class="example nohighlight" title="Usage of the credential status id property">
+      {
+        "id": "https://dmv.example.gov/status/24",
+        "issuer": "http://dmv.example.gov/",
+        "issued" : "2017-12-05T14:27:42Z",  
+        "credentialStatuses": [{  
+          "id": "https://dmv.example.gov/status/24/credentials/3732",
+          "credentialId": "https://dmv.example.gov/credentials/3732",
+          "status": "Revoked",
+          <span class="highlight">"statusReason": "Disciplinary action",</span>
+          "issuer": "http://dmv.example.gov/",
+          "issuanceDate": "2017-12-05T14:27:42Z",
+          "proof": { ... }
+        }, {
+          "id": "http://dmv.example.gov/status/24/credentials/2363",
+          "credentialId": "http://dmv.example.gov/credentials/2363",
+          "currentStatus": "Suspended",
+          "statusReason": "Investigation"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-04T14:27:42Z",
+          "proof": { ... }
+        }
+        }],
+        "proof": { ... }
+      }
+                </pre>
+
+      </section>
+
+      <section>
+        <h4>Issuer</h4>
+
+        <p>
+          A <a>credential status</a> object MAY define an <code>issuer</code>.
+        </p>
+
+        <dl>
+          <dt><var>issuer</var></dt>
+          <dd>
+            The value of the <code>issuer</code> property MUST be either a
+            <a>URI</a> or an object containing an <code>id</code>. It is
+            RECOMMENDED that the <a>URI</a> in the <code>issuer</code> or its
+            <code>id</code> be one which, if dereferenced, results in a document containing
+            machine-readable information about the <a>issuer</a> that can be used to
+            <a>verify</a> the information expressed in the <a>credential status list</a>.
+          </dd>
+        </dl>
+
+        <pre class="example nohighlight" title="Usage of the issuer property">
+      {
+        "id": "https://dmv.example.gov/status/24",
+        "issuer": "http://dmv.example.gov/",
+        "issued" : "2017-12-05T14:27:42Z",
+        "credentialStatuses": [{
+          "id": "https://dmv.example.gov/status/24/credentials/3732",
+          "credentialId": "https://dmv.example.gov/credentials/3732"
+          "status": "Revoked",
+          "statusReason": "Disciplinary action"
+          <span class="highlight">"issuer": "http://dmv.example.gov/",</span>
+          "issued": "2017-12-05T14:27:42Z",
+          "proof": { ... }
+        }, {
+          "id": "http://dmv.example.gov/status/24/credentials/2363",
+          "credentialId": "http://dmv.example.gov/credentials/2363",
+          "currentStatus": "Suspended",
+          "statusReason": "Investigation"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-04T14:27:42Z",
+          "proof": { ... }
+        }
+        }],
+        "proof": { ... }
+      }
+                </pre>
+
+        <p>
+          It is also possible to express additional information about the issuer by
+          associating an object with the issuer property:
+        </p>
+
+        <pre class="example nohighlight" title="Usage of the issuer property">
+      {
+        "id": "https://dmv.example.gov/status/24",
+        "issuer": "http://dmv.example.gov/",
+        "issued" : "2017-12-05T14:27:42Z",
+        "credentialStatuses": [{
+          "id": "https://dmv.example.gov/status/24/credentials/3732",
+          "credentialId": "https://dmv.example.gov/credentials/3732"
+          "status": "Revoked",
+          "statusReason": "Disciplinary action"
+          <span class="highlight">"issuer": {
+            "id": "did:example:76e12ec712ebc6f1c221ebfeb1f",
+            "name": "Example Academic Institute"
+          }</span>,
+          "issued": "2017-12-05T14:27:42Z",
+          "proof": { ... }
+        }, {
+          "id": "http://dmv.example.gov/status/24/credentials/2363",
+          "credentialId": "http://dmv.example.gov/credentials/2363",
+          "currentStatus": "Suspended",
+          "statusReason": "Investigation"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-04T14:27:42Z",
+          "proof": { ... }
+        }
+        }],
+        "proof": { ... }
+      }
+                </pre>
+
+        <p class="note">
+          The value of the <code>issuer</code> property can also be a JWK (for
+          example, <code>"https://example.com/keys/foo.jwk"</code>) or a <a>DID</a> (for
+          example, <code>"did:example:abfe13f712120431c276e12ecab"</code>).
+        </p>
+
+      </section>
+
+      <section>
+        <h4>Issued</h4>
+
+        <p>
+          A <a>credential status</a> object MAY define an <code>issued</code> property.
+        </p>
+
+        <dl>
+          <dt><var>issued</var></dt>
+          <dd>
+            The value of the <code>issued</code> property MUST be a string value of
+            an [[!RFC3339]] combined date and time string representing the date and time the
+            <a>credential status list</a> becomes valid, which could be a date and time in the future.
+          </dd>
+        </dl>
+
+        <pre class="example nohighlight" title="Usage of the issued property">
+      {
+        "id": "https://dmv.example.gov/status/24",
+        "issuer": "http://dmv.example.gov/",
+        "issued" : "2017-12-05T14:27:42Z",
+        "credentialStatuses": [{
+          "id": "https://dmv.example.gov/status/24/credentials/3732",
+          "credentialId": "https://dmv.example.gov/credentials/3732"
+          "status": "Revoked",
+          "statusReason": "Disciplinary action"
+          "issuer": "http://dmv.example.gov/",
+          <span class="highlight">"issued": "2017-12-05T14:27:42Z",</span>
+          "proof": { ... }
+        }, {
+          "id": "http://dmv.example.gov/status/24/credentials/2363",
+          "credentialId": "http://dmv.example.gov/credentials/2363",
+          "currentStatus": "Suspended",
+          "statusReason": "Investigation"
+          "issuer": "http://dmv.example.gov/",
+          "issued": "2017-12-04T14:27:42Z",
+          "proof": { ... }
+        }
+        }],
+        "proof": { ... }
+      }
+                </pre>
+
+      </section>
+
+    </section>
+
+    <section>
+      <h3>Proofs</h3>
+
+      <p>
+        This specification defines the <code>proof</code> property for expressing proofs associated to the
+        credentials status list. The proof mechanism used is a Linked Data Signature.
+      </p>
+
+      <p class="issue">
+        Add a section about linked data signatures.
+      </p>
+
+      <p>
+        A <a>credential status list</a> MAY define a <code>proof</code> property. When embedding a proof, the
+        <code>proof</code> property MUST be used.
+      </p>
+
+      <dl>
+        <dt><var>proof</var></dt>
+        <dd>
+          One or more cryptographic proofs that can be used to detect tampering and verify the authorship of the
+          credential status.
+          The specific method used for an embedded proof MUST be included using the type property.
+        </dd>
+      </dl>
+
+      <p>
+        Because the method used for a mathematical proof varies by representation language and the technology used, the
+        set of
+        name-value pairs that is expected as the value of the proof property will vary accordingly. For example, if
+        digital
+        signatures are used for the proof mechanism, the proof property is expected to have name-value pairs that
+        include a
+        signature, a reference to the signing entity, and a representation of the signing date. The example below uses
+        RSA digital signatures.
+      </p>
+
+      <pre class="example nohighlight" title="Usage of the issued property">
+{
+  "id": "https://dmv.example.gov/status/24",
+  "issuer": "http://dmv.example.gov/",
+  "issued" : "2017-12-05T14:27:42Z",
+  "credentialStatuses": [{
+    "id": "https://dmv.example.gov/status/24/credentials/3732",
+    "credentialId": "https://dmv.example.gov/credentials/3732"
+    "status": "Revoked",
+    "statusReason": "Disciplinary action"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-05T14:27:42Z",
+    "proof": { ... }
+  }, {
+    "id": "http://dmv.example.gov/status/24/credentials/2363",
+    "credentialId": "http://dmv.example.gov/credentials/2363",
+    "currentStatus": "Suspended",
+    "statusReason": "Investigation"
+    "issuer": "http://dmv.example.gov/",
+    "issued": "2017-12-04T14:27:42Z",
+    "proof": { ... }
+  }
+  }],
+  <span class="highlight">"proof": {
+      "type": "RsaSignature2018",
+      "created": "2018-06-18T21:19:10Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "https://example.com/jdoe/keys/1",
+      "jws": "eyJhbGciOiJQUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19
+        ..DJBMvvFAIC00nSGB6Tn0XKbbF9XrsaJZREWvR2aONYTQQxnyXirtXnlewJMB
+        Bn2h9hfcGZrvnC1b6PgWmukzFJ1IiH1dWgnDIS81BH-IxXnPkbuYDeySorc4
+        QU9MJxdVkY5EL4HYbcIfwKj6X4LBQ2_ZHZIu1jdqLcRZqHcsDF5KKylKc1TH
+        n5VRWy5WhYg_gBnyWny8E6Qkrze53MR7OuAmmNJ1m1nN8SxDrG6a08L78J0-
+        Fbas5OjAQz3c17GY8mVuDPOBIOVjMEghBlgl3nOi1ysxbRGhHLEK4s0KKbeR
+        ogZdgt1DkQxDFxxn41QWDw_mmMCjs9qxg0zcZzqEJw"
+    }</span>
+}
+          </pre>
+
+    </section>
+
+  </section>
+
+  <section class="informative">
+    <h3>Verifiable Credentials</h3>
+
+    <p>
+      A <a>verifiable credential</a> can express its credential status by creating a reference to a <a>credential status
+        list</a>
+      through the <a>credential status</a> property.
+    </p>
+
+    <pre class="example nohighlight" title="Usage of credential status property">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+  "issuer": "https://example.edu/issuers/14",
+  "issuanceDate": "2010-01-01T19:23:24Z",
+  "credentialSubject": {
     "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "ageOver": 21
+    "degree": {
+      "type": "BachelorDegree",
+      "name": "Bachelor of Science and Arts"
+    }
   },
   <span class="highlight">"credentialStatus": {
-    "id": "https://dmv.example.gov/status/24,
+    "id": "https://example.edu/status/24",
     "type": "CredentialStatusList2017"
   }</span>,
   "proof": { ... }
 }</pre>
 
-</section>
+    <section>
+      <h4>Identifier</h4>
 
-<section>
-<h1>Data Model</h1>
+      <p>
+        For a <a>credential status list</a> to be referenced by a verifiable credential, the <a>id</a> property in the
+        credential status
+        section of the verifiable credential MUST be a URL and have the scheme of HTTP or HTTPS. This URL MUST identify
+        the target <a>credential
+          status list</a> uniquely. Dereferencing the URL following the defined <a>protocol</a> MUST yeild a document
+        conforming to the credential
+        status list <a>data model</a>.
+      </p>
 
-<p class="issue">
-Include the data model for the list-based credential revocation
-</p>
+      <pre class="example nohighlight"
+        title="Usage of credential status identifier property in a verifiable credential">
+        {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/2018/credentials/examples/v1"
+          ],
+          "id": "http://example.edu/credentials/3732",
+          "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+          "issuer": "https://example.edu/issuers/14",
+          "issuanceDate": "2010-01-01T19:23:24Z",
+          "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "degree": {
+              "type": "BachelorDegree",
+              "name": "Bachelor of Science and Arts"
+            }
+          },
+          "credentialStatus": {
+            <span class="highlight">"id": "https://example.edu/status/24",</span>
+            "type": "CredentialStatusList2017"
+          },
+          "proof": { ... }
+        }</pre>
 
-<pre class="example nohighlight" title="Usage of status property">
-{
-  "id": "https://dmv.example.gov/status/24,
-  "description": "Status of example Department of Motor Vehicles credentials."
-  "verifiableCredential": [{
-    "claim": {
-      "id": "http://dmv.example.gov/credentials/3732",
-      "currentStatus": "Revoked",
-      "statusReason": "Disciplinary action"
-    },
-    "issuer": "http://dmv.example.gov/",
-    "issued": "2017-12-05T14:27:42Z",
-    "proof": { ... }
-  }, {
-    "claim": {
-      "id": "http://dmv.example.gov/credentials/2363",
-      "currentStatus": "Suspended",
-      "statusReason": "Investigation"
-    },
-    "issuer": "http://dmv.example.gov/",
-    "issued": "2017-12-04T14:27:42Z",
-    "proof": { ... }
-  },
-    // ... more status info here ...
-  }],
-  "proof": { ... }
-}
-</pre>
+    </section>
 
-</section>
+    <section>
+      <h4>Type</h4>
 
-<section>
-<h1>Protocol</h1>
+      <p>
+        For a <a>credential status list</a> to be referenced by a verifiable credential, the <code>type</code> property
+        in the
+        credential status
+        section of the verifiable credential MUST be set to the value of <code>CredentialStatusList2017</code>.
+      </p>
 
-<p class="issue">
-Include the protocol for the list-based credential revocation, which is
-basically HTTP GET.
-</p>
+      <pre class="example nohighlight" title="Usage of credential status type property in a verifiable credential">
+        {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/2018/credentials/examples/v1"
+          ],
+          "id": "http://example.edu/credentials/3732",
+          "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+          "issuer": "https://example.edu/issuers/14",
+          "issuanceDate": "2010-01-01T19:23:24Z",
+          "credentialSubject": {
+            "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+            "degree": {
+              "type": "BachelorDegree",
+              "name": "Bachelor of Science and Arts"
+            }
+          },
+          "credentialStatus": {
+            "id": "https://example.edu/status/24",
+            <span class="highlight">"type": "CredentialStatusList2017"</span>
+          },
+          "proof": { ... }
+        }</pre>
+
+    </section>
+
+  </section>
+
+
+
+  </section>
+
+  <section>
+    <h1>Protocol</h1>
+
+    <p class="issue">
+      Include the protocol for the list-based credential revocation, which is
+      basically HTTP GET.
+    </p>
 
     <pre class="example highlight" title="Credential status list retrieval example">
 GET /status/24 HTTP/1.1
@@ -201,32 +982,39 @@ Link: &lt;https://w3id.org/credentials/v1>;
   rel="http://www.w3.org/ns/json-ld#context";
   type="application/ld+json"
 
+  //TODO add JSON-LD @context
 {
-  "id": "https://dmv.example.gov/status/24,
-  "description": "Status of example Department of Motor Vehicles credentials."
-  "verifiableCredential": [{
-    "claim": {
-      "id": "http://dmv.example.gov/credentials/3732",
-      "currentStatus": "Revoked",
-      "statusReason": "Disciplinary action"
-    },
+  "id": "https://dmv.example.gov/status/24",
+  "issued" : "2017-12-05T14:27:42Z",
+  "verifiableCredentials": [{
+    "id": "https://dmv.example.gov/status/24/credentials/3732",
+    "credentialId": "https://dmv.example.gov/credentials/3732"
+    "status": "Revoked",
+    "statusReason": "Disciplinary action"
     "issuer": "http://dmv.example.gov/",
     "issued": "2017-12-05T14:27:42Z",
     "proof": { ... }
   }, {
-    "claim": {
-      "id": "http://dmv.example.gov/credentials/2363",
-      "currentStatus": "Suspended",
-      "statusReason": "Investigation"
-    },
+    "id": "http://dmv.example.gov/status/24/credentials/2363",
+    "credentialId": "http://dmv.example.gov/credentials/2363",
+    "currentStatus": "Suspended",
+    "statusReason": "Investigation"
     "issuer": "http://dmv.example.gov/",
     "issued": "2017-12-04T14:27:42Z",
     "proof": { ... }
-  },
-    // ... more status info here ...
+  }
   }],
   "proof": { ... }
 }
+</section>
+
+<section>
+    <h1>Privacy Considerations</h1>
+
+    <p class="issue">
+        Add commentary about how credentials are batched together, which limits the ability for a host of the list to detect
+        which credentials status is being checked
+    </p>
 </section>
 
 </section>
