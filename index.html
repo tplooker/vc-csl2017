@@ -20,7 +20,7 @@
       shortName: "vc-csl2017",
 
       // subtitle
-      subtitle: "A simple list-based method for checking the current status of a credential",
+      subtitle: "A simple list-based method for checking the status of a credential",
 
       // if you wish the publication date to be other than today, set this
       // publishDate:  "2009-08-06",
@@ -144,47 +144,39 @@
       for expressing credential status information about a <a>verifiable credential</a> in a way
       that is verifiable and privacy preserving.
     </p>
+
+    <p class="issue">
+      Add valid JSON-LD context to examples?
+    </p>
+
+    <p class="issue">
+      Should the actual credential status claims made about a verifiable credential in a credential status list element
+      be in a seperate sub object?
+    </p>
   </section>
 
   <section class="informative">
     <h1>Terminology</h1>
+    <dt><dfn data-lt="claims">claim</dfn></dt>
+    <dd>
+      An assertion made about a <a>subject</a>.
     </dd>
     <dt><dfn data-lt="credential|credentials">credential</dfn></dt>
     <dd>
       A set of one or more <a>claims</a> made by an <a>issuer</a>. A
       <dfn data-lt="verifiable credentials">verifiable credential</dfn> is a
       tamper-evident credential that has authorship that can be cryptographically
-      verified. Verifiable credentials can be used to build
-      <a>verifiable presentations</a>, which can also be cryptographically verified.
-      The <a>claims</a> in a credential can be about different <a>subjects</a>.
-    </dd>
+      verified.
     </dd>
     <dt><dfn data-lt="decentralized identifiers|DID|DIDs">decentralized identifier</dfn></dt>
     <dd>
-      A portable URL-based identifier, also known as a <strong><em>DID</em></strong>,
-      associated with an <a>entity</a>. These identifiers are most often used in a
-      <a>verifiable credential</a> and are associated with <a>subjects</a> such that a
-      <a>verifiable credential</a> itself can be easily ported from one
-      <a>repository</a> to another without the need to reissue the <a>credential</a>.
-      An example of a DID is <code>did:example:123456abcdef</code>.
+      A portable URL-based identifier as defined in [[DID-SPEC]], also known as a <strong><em>DID</em></strong>,
+      associated with an <a>entity</a>. An example of a DID is <code>did:example:123456abcdef</code>.
     <dt><dfn data-lt="issuers|issuer's">issuer</dfn></dt>
     <dd>
       A role an <a>entity</a> can perform by asserting <a>claims</a> about one or
-      more <a>subjects</a>, creating a <a>verifiable credential</a> from these
-      <a>claims</a>, and transmitting the <a>verifiable credential</a> to a
-      <a>holder</a>.
+      more <a>subjects</a>.
     </dd>
-    <dt><dfn data-lt="presentations">presentation</dfn></dt>
-    <dd>
-      Data derived from one or more <a>verifiable credentials</a>, issued by one or
-      more <a>issuers</a>, that is shared with a specific <a>verifier</a>. A
-      <dfn data-lt="verifiable presentations">verifiable presentation</dfn>
-      is a tamper-evident presentation encoded in such a way that authorship of the
-      data can be trusted after a process of cryptographic verification. Certain
-      types of verifiable presentations might contain data that is synthesized from,
-      but do not contain, the original <a>verifiable credentials</a> (for example,
-      zero-knowledge proofs).
-
     <dt><dfn data-lt="entities|entity's">entity</dfn></dt>
     <dd>
       A thing with distinct and independent existence, such as a person,
@@ -192,53 +184,48 @@
     </dd>
     <dt><dfn data-lt="credential status list">credential status list</dfn></dt>
     <dd>
-      A list expressing the current status of a collection of <a>verifiable credentials</a>.
+      A list composed of a collection of <a>credential status list elements</a>.
+    </dd>
+    <dt><dfn data-lt="credential status list element|credential status list elements">credential status list
+        element</dfn></dt>
+    <dd>
+      An element within a <a>credential status list</a> that describes a <a>verifiable credential</a> as the subject and
+      contains <a>claims</a> describing the <a>verifiable credentials</a>, <a>credential status</a>.
     </dd>
     <dt><dfn data-lt="credential status">credential status</dfn></dt>
     <dd>
-      The current status of a <a>verifiable credential</a> as defined by the [[VC-SPEC]].
+      The status of a <a>verifiable credential</a> as defined in [[VC-SPEC]].
     </dd>
-    </dd>
-    <dt><dfn data-lt="verify|verified|verifying|verifiable|verifiability">verification</dfn></dt>
+    <dt><dfn data-lt="subjects|subject's">subject</dfn></dt>
     <dd>
-      The evaluation of whether a <a>verifiable credential</a> or <a>verifiable presentation</a>
-      is an authentic and timely statement of the issuer or presenter, respectively.
-      This includes checking that: the credential (or presentation) conforms to the specification; the proof method is
-      satisfied; and, if present, the status check succeeds.
-
-    </dd>
-    <dt><dfn data-lt="verifier|verifiers|verifier's|credential verifiers|credential verifier's">verifier</dfn></dt>
-    <dd>
-      A role an <a>entity</a> performs by receiving one or more
-      <a>verifiable credentials</a>, optionally inside a
-      <a>verifiable presentation</a> for processing. Other specifications might refer
-      to this concept as a <dfn data-lt="relying parties">relying party</dfn>.
+      A thing about which <a>claims</a> are made.
     </dd>
     <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
     <dd>
       A Uniform Resource Identifier, as defined by [[RFC3986]].
     </dd>
+    <dt><dfn data-lt="verify|verified|verifying|verifiable|verifiability">verification</dfn></dt>
+    <dd>
+      The evaluation of whether something is an authentic and timely statement.
+    </dd>
   </section>
-  <section class="informative">
-    <h2>Data Model</h2>
-
-    <p class="issue">
-      Add commentary about the status field and approaches to different enumerations
-    </p>
+  <section>
+    <h1>Data Model</h1>
 
     <p>
-      The following section outlines the data model for the credential status list.
+      The following section outlines the data model for the <a>credential status list</a> and a <a>credential status
+        list element</a>.
     </p>
 
     <section>
-      <h3>Identifier</h3>
+      <h2>Identifier</h2>
 
       <p>
-        A credential status list contains an identifier which identifies the status list.
+        A credential status list contains a property which identifies the status list.
       </p>
 
       <p>
-        A <a>credential status list</a> MUST define an <code>id</code>.
+        A <a>credential status list</a> MUST define an <code>id</code> property.
       </p>
 
       <pre class="example nohighlight" title="Usage of the id property">
@@ -270,7 +257,7 @@
     </section>
 
     <section>
-      <h3>Issuer</h3>
+      <h2>Issuer</h2>
 
       <p>
         This specification defines a property for expressing the <a>issuer</a> of a credential status list.
@@ -363,7 +350,7 @@
     </section>
 
     <section>
-      <h3>Issued</h3>
+      <h2>Issued</h2>
 
       <p>
         This specification defines the <code>issued</code> property for expressing the date and time when a
@@ -414,12 +401,11 @@
     </section>
 
     <section>
-      <h3>Credential Status</h3>
+      <h2>Credential Status List Element</h2>
 
       <p>
-        This specification defines the <code>credentialStatuses</code> property for expressing verifiable
-        credentials and their
-        current credential status.
+        This specification defines the <code>credentialStatuses</code> property for expressing
+        an array of <a>credential status list elements</a>.
       </p>
 
       <p>
@@ -430,7 +416,7 @@
         <dt><var>credentialStatuses</var></dt>
         <dd>
           The value of the <code>credentialStatuses</code> property MUST be an array of
-          objects conforming to the <code>credentialStatus</code> data model.
+          <a>credential status list elements</a> conforming to the data model defined in the current section.
         </dd>
       </dl>
 
@@ -462,15 +448,20 @@
           </pre>
 
       <section>
-        <h4>Identifier</h4>
+        <h3>Identifier</h3>
 
         <p>
-          This specification defines the <code>identifier</code> property for uniquely identifying a credential
-          status.
+          This specification defines the <code>identifier</code> property for a <a>credential status list element</a>
+          for unique reference and identification
+          of a particular <a>credential status list element</a>.
         </p>
 
         <p>
-          A <a>credential status</a> object MUST define an <code>id</code> property.
+          A <a>credential status list element</a> MUST define an <code>id</code> property.
+
+          Within a single <a>credential status list</a> there MUST NOT be multiple <a>credential status list
+            elements</a>
+          that feature the same <code>id</code>.
         </p>
 
         <pre class="example nohighlight" title="Usage of the credential status id property">
@@ -503,18 +494,21 @@
       </section>
 
       <section>
-        <h4>Credential Identifier</h4>
+        <h3>Credential Identifier</h3>
 
         <p>
-          This specification defines the <code>credentialId</code> property for uniquely identifying the
-          credential that is
-          the subject of the credential status.
+          This specification defines the <code>credentialId</code> property for a <a>credential status list
+            element</a> for uniquely identifying the
+          <a>verifiable credential</a> as the <a>subject</a>.
         </p>
 
         <p>
-          A <a>credential status</a> object MUST define a <code>credentialId</code> property. The
-          <code>credentialId</code>
-          MUST uniquely identify the verifiable credential that is the subject of the credential status.
+          A <a>credential status list element</a> MUST define a <code>credentialId</code> property. The
+          <code>credentialId</code> MUST uniquely identify the <a>verifiable credential</a> as the <a>subject</a>.
+
+          Within a single <a>credential status list</a> there MUST NOT be multiple <a>credential status list
+            elements</a>
+          that feature the same <code>credentialId</code>.
         </p>
 
         <pre class="example nohighlight" title="Usage of the credential status id property">
@@ -547,19 +541,19 @@
       </section>
 
       <section>
-        <h4>Status</h4>
+        <h3>Status</h3>
 
         <p class="issue">
-          Further define the possible enumerations of this field.
+          Should this be trapped to a string?
         </p>
 
         <p>
-          This specification defines the <code>status</code> property for indicating the verifiable credentials
-          current status.
+          This specification defines the <code>status</code> property for a <a>credential status list element</a> for
+          indicating the <a>verifiable credentials</a> <a>credential status</a>.
         </p>
 
         <p>
-          A <a>credential status</a> object MUST define a <code>status</code> property.
+          A <a>credential status list element</a> MUST define a <code>status</code> property.
         </p>
 
         <pre class="example nohighlight" title="Usage of the credential status id property">
@@ -592,15 +586,16 @@
       </section>
 
       <section>
-        <h4>Status Reason</h4>
+        <h3>Status Reason</h3>
 
         <p>
-          This specification defines the <code>statusReason</code> property for adding a textual reason to the
-          current status of a verifiable credential.
+          This specification defines the <code>statusReason</code> property for a <a>credential status list
+            element</a>
+          for adding a textual reason to the <a>verifiable credentials</a> <a>credential status</a>.
         </p>
 
         <p>
-          A <a>credential status</a> object MAY define a <code>statusReason</code> property.
+          A <a>credential status list element</a> MAY define a <code>statusReason</code> property.
         </p>
 
         <pre class="example nohighlight" title="Usage of the credential status id property">
@@ -628,15 +623,15 @@
         }],
         "proof": { ... }
       }
-                </pre>
+            </pre>
 
       </section>
 
       <section>
-        <h4>Issuer</h4>
+        <h3>Issuer</h3>
 
         <p>
-          A <a>credential status</a> object MAY define an <code>issuer</code>.
+          A <a>credential status list element</a> object MAY define an <code>issuer</code>.
         </p>
 
         <dl>
@@ -647,7 +642,7 @@
             RECOMMENDED that the <a>URI</a> in the <code>issuer</code> or its
             <code>id</code> be one which, if dereferenced, results in a document containing
             machine-readable information about the <a>issuer</a> that can be used to
-            <a>verify</a> the information expressed in the <a>credential status list</a>.
+            <a>verify</a> the information expressed in the <a>credential status list element</a>.
           </dd>
         </dl>
 
@@ -722,18 +717,18 @@
       </section>
 
       <section>
-        <h4>Issued</h4>
+        <h3>Issued</h3>
 
         <p>
-          A <a>credential status</a> object MAY define an <code>issued</code> property.
+          A <a>credential status list element</a> object MAY define an <code>issued</code> property.
         </p>
 
         <dl>
           <dt><var>issued</var></dt>
           <dd>
             The value of the <code>issued</code> property MUST be a string value of
-            an [[!RFC3339]] combined date and time string representing the date and time the
-            <a>credential status list</a> becomes valid, which could be a date and time in the future.
+            an [[RFC3339]] combined date and time string representing the date and time the
+            <a>credential status list element</a> becomes valid, which could be a date and time in the future.
           </dd>
         </dl>
 
@@ -769,7 +764,7 @@
     </section>
 
     <section>
-      <h3>Proofs</h3>
+      <h2>Proofs</h2>
 
       <p>
         This specification defines the <code>proof</code> property for expressing proofs associated to the
@@ -848,11 +843,12 @@
 
   </section>
 
-  <section class="informative">
-    <h3>Verifiable Credentials</h3>
+  <section>
+    <h2>Verifiable Credentials</h2>
 
     <p>
-      A <a>verifiable credential</a> can express its credential status by creating a reference to a <a>credential status
+      A <a>verifiable credential</a> can express its <a>credential status</a> by creating a reference to a <a>credential
+        status
         list</a>
       through the <a>credential status</a> property.
     </p>
@@ -882,16 +878,17 @@
 }</pre>
 
     <section>
-      <h4>Identifier</h4>
+      <h3>Identifier</h3>
 
       <p>
-        For a <a>credential status list</a> to be referenced by a verifiable credential, the <a>id</a> property in the
+        For a <a>credential status list</a> to be referenced by a <a>verifiable credential</a>, the <code>id</code>
+        property in the
         credential status
-        section of the verifiable credential MUST be a URL and have the scheme of HTTP or HTTPS. This URL MUST identify
+        section of the <a>verifiable credential</a> MUST be a URL and have the scheme of HTTP or HTTPS. This URL MUST
+        identify
         the target <a>credential
-          status list</a> uniquely. Dereferencing the URL following the defined <a>protocol</a> MUST yeild a document
-        conforming to the credential
-        status list <a>data model</a>.
+          status list</a> uniquely. Dereferencing the URL, MUST yield a document
+        conforming to the data model outlined in <a href="#data-model"></a>.
       </p>
 
       <pre class="example nohighlight"
@@ -922,10 +919,11 @@
     </section>
 
     <section>
-      <h4>Type</h4>
+      <h3>Type</h3>
 
       <p>
-        For a <a>credential status list</a> to be referenced by a verifiable credential, the <code>type</code> property
+        For a <a>credential status list</a> to be referenced by a <a>verifiable credential</a>, the <code>type</code>
+        property
         in the
         credential status
         section of the verifiable credential MUST be set to the value of <code>CredentialStatusList2017</code>.
@@ -959,65 +957,85 @@
 
   </section>
 
-
-
   </section>
 
   <section>
     <h1>Protocol</h1>
 
     <p class="issue">
-      Include the protocol for the list-based credential revocation, which is
-      basically HTTP GET.
+      Should this be under the verifiable credential section
     </p>
 
-    <pre class="example highlight" title="Credential status list retrieval example">
-GET /status/24 HTTP/1.1
-Host: dmv.example.gov
-Content-Type: application/ld+json
-Content-Length: 1062
-Accept: application/ld+json, application/json, text/plain, */*
-Accept-Encoding: gzip, deflate
-Link: &lt;https://w3id.org/credentials/v1>;
-  rel="http://www.w3.org/ns/json-ld#context";
-  type="application/ld+json"
+    <section>
+      <h2>Retrieval</h2>
 
-  //TODO add JSON-LD @context
-{
-  "id": "https://dmv.example.gov/status/24",
-  "issued" : "2017-12-05T14:27:42Z",
-  "verifiableCredentials": [{
-    "id": "https://dmv.example.gov/status/24/credentials/3732",
-    "credentialId": "https://dmv.example.gov/credentials/3732"
-    "status": "Revoked",
-    "statusReason": "Disciplinary action"
-    "issuer": "http://dmv.example.gov/",
-    "issued": "2017-12-05T14:27:42Z",
-    "proof": { ... }
-  }, {
-    "id": "http://dmv.example.gov/status/24/credentials/2363",
-    "credentialId": "http://dmv.example.gov/credentials/2363",
-    "currentStatus": "Suspended",
-    "statusReason": "Investigation"
-    "issuer": "http://dmv.example.gov/",
-    "issued": "2017-12-04T14:27:42Z",
-    "proof": { ... }
-  }
-  }],
-  "proof": { ... }
-}
-</section>
+      <p>
+        Given the <a>URL</a> that uniquely identifies a <a>credential status list</a> an HTTP GET request
+        can be performed with the <a>URL</a> to retrieve the <a>credential status list</a>.
+      </p>
 
-<section>
+      <pre class="example highlight" title="Credential status list retrieval example">
+            GET /status/24 HTTP/1.1
+            Host: dmv.example.gov
+            Accept: application/json
+
+            HTTP/1.1 200 OK
+            Content-Type: application/json
+            Content-Length: 1062
+
+            {
+              "id": "https://dmv.example.gov/status/24",
+              "issued" : "2017-12-05T14:27:42Z",
+              "verifiableCredentials": [{
+                "id": "https://dmv.example.gov/status/24/credentials/3732",
+                "credentialId": "https://dmv.example.gov/credentials/3732"
+                "status": "Revoked",
+                "statusReason": "Disciplinary action"
+                "issuer": "http://dmv.example.gov/",
+                "issued": "2017-12-05T14:27:42Z",
+                "proof": { ... }
+              }, {
+                "id": "http://dmv.example.gov/status/24/credentials/2363",
+                "credentialId": "http://dmv.example.gov/credentials/2363",
+                "currentStatus": "Suspended",
+                "statusReason": "Investigation"
+                "issuer": "http://dmv.example.gov/",
+                "issued": "2017-12-04T14:27:42Z",
+                "proof": { ... }
+              }
+              }],
+              "proof": { ... }
+            }
+          </pre>
+
+    </section>
+
+    <section>
+      <h2>Validation</h2>
+
+      <p class="issue">
+        Talk about the nessary steps of validation required
+        Should this be in the particular context of a verifiable credential? E.g MUST validate the issuer of the status
+        is the same as the issuer of the verifiable credential?
+      </p>
+
+    </section>
+
+
+  </section>
+
+  <section>
     <h1>Privacy Considerations</h1>
 
     <p class="issue">
-        Add commentary about how credentials are batched together, which limits the ability for a host of the list to detect
-        which credentials status is being checked
+      Add commentary about how credentials are batched together, which limits the ability for a host of the list to
+      detect
+      which credentials status is being checked
     </p>
-</section>
+  </section>
 
-</section>
+  </section>
 
 </body>
+
 </html>
